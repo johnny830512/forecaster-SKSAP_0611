@@ -229,7 +229,7 @@ predict_items:
         grade_list: [BC283HA, BC283FHA, BC383GA, BC8000]
         tags:
     SKSAP_normal_CRC_0715:
-        device: "0715 一期 一般品 茶袋保持力 (Mix)"
+        device: "0715 三期 一般品 茶袋保持力 (Mix)"
         note: "(Ridge + RF + XGBoost)"
         data_name: SKSAP_normal_CRC_0715.csv
         data_target:
@@ -254,7 +254,7 @@ predict_items:
         grade_list: [BC283FA,BC283FAN,BC283GAN,BC583AN,BC586G,BC283UT]
         tags:
     SKSAP_normal_aap7_0715:
-        device: "0715 一期 一般品 0.7psi aap (Mix)"
+        device: "0715 三期 一般品 0.7psi aap (Mix)"
         note: "(Ridge + RF + XGBoost)"
         data_name: SKSAP_normal_psi7_0715.csv
         data_target:
@@ -280,7 +280,7 @@ predict_items:
         tags:
     SKSAP_normal_CRC_1_0715:
         device: "0715 一期 一般品 茶袋保持力 (Mix)"
-        note: "(RF + XGBoost)"
+        note: "(Ridge + RF + XGBoost)"
         data_name: SKSAP_normal_CRC_1_0715.csv
         data_target:
         algo_name: [SKSAP_normal_CRC_1_RIDGE_0715.sav,SKSAP_normal_CRC_1_RF_0715.sav,SKSAP_normal_CRC_1_XGB_0715.sav]
@@ -305,7 +305,7 @@ predict_items:
         tags:
     SKSAP_normal_aap7_1_0715:
         device: "0715 一期 一般品 0.7psi aap (Mix)"
-        note: "(RIDGE + RF + XGBoost)"
+        note: "(Ridge + RF + XGBoost)"
         data_name: SKSAP_normal_psi7_1_0715.csv
         data_target:
         algo_name: [SKSAP_normal_psi7_1_RIDGE_0715.sav,SKSAP_normal_psi7_1_RF_0715.sav,SKSAP_normal_psi7_1_XGB_0715.sav]
