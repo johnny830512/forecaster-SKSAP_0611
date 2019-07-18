@@ -129,6 +129,10 @@ class FortuneTeller:
         """
         The main method of system
         """
+        self.start_time = self.start_time - timedelta(hours = 8)
+        #為了能夠往回撈到lims的資料，多回推8小時
+        
+        
         X = self.data_manager.get_feature(self.name, time)
         self.time = time
         self.X = X
@@ -174,8 +178,12 @@ class FortuneTeller:
         self.mae = self._calculateMAE()
 
     def _updateModelCoefs(self, weights):
+        #print("START UPDATE COEF")
+        #print("DATA SHAPE:", self.target_data.shape[0])
         if self.target_data.shape[0] < self.config["revise_sample_times"]:
             return weights
+        
+        
         error = dict()
         value = defaultdict(list)
         for name in self.algo_name:
@@ -187,19 +195,29 @@ class FortuneTeller:
                                                       self.config["revise_minutes_low"],
                                                       self.config["revise_minutes_high"])
                 if np.isinf(predict_value):
+                    #print("np.isinf = T :",predict_value)
                     self.drop_index.append(index)
                     continue
                 value[name].append(predict_value)
+            #print(self.target_data)
+            #print("DROP INDEX:", self.drop_index)
+            
             true_value = self.target_data["value"].copy()
             true_value.drop(self.drop_index, inplace=True)
+            #print("true_value :",true_value)
+            #print("predict value :",value[name])
             error[name] = self._calculateError(true_value,
                                                value[name],
                                                method=self.error_method)
+        #print("PREDICT ERROR :",error)
+       
         if len(weights) == 1:
             return weights
         if sum(error.values()) == 0:
             return weights
         new_weights = getModelCoefs(error)
+        #print("new_weights : ",new_weights )
+        #print("END UPDATE COEF")
         return new_weights
 
     def _revise(self):

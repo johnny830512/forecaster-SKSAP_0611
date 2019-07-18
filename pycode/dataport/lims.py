@@ -71,6 +71,8 @@ class Lims():
             where_condition.append("sampled_date between {0} and {1}".format("''" + start_time_str + "''", "''" + end_time_str + "''"))
 
         where_condition.append("status = ''A''")
+        where_condition.append("test_status = ''A''")
+        where_condition.append("result_status = ''A''")
 
         if len(where_condition) != 0:
             where_str = 'where '
@@ -78,5 +80,5 @@ class Lims():
         logger.info('get_lims, {0} start: {1}; end: {2}'.format('; '.join(['{0}: {1}'.format(key, info[key]) for key in info.keys()]), start_time_str, end_time_str))
         query = self.query_str.format(self.lims_server, columns, self.lims_table, where_str + ' and '.join(where_condition), time_condition)
         df = pd.read_sql(query, self.engine)
-        df.drop_duplicates(['SAMPLED_DATE'], keep='first', inplace=True)
+        #df.drop_duplicates(['SAMPLED_DATE'], keep='first', inplace=True)
         return df

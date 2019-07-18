@@ -13,7 +13,7 @@ general:
 web_api_setting:
     host: 10.153.199.221
     port: 80
-    docker_port: 20005
+    docker_port: 10005
 
 event:
     plant: SKSAP
@@ -23,7 +23,7 @@ lims_setting:
     history_view: lims.samp_test_result_sks
 
 sql_connect:
-    rtpms: mssql+pyodbc://sa:`1qaz2wsx@10.153.196.180:1433/master?driver=MSSQL
+    rtpms: mssql+pyodbc://sa:`1qaz2wsx@10.110.196.180:1433/master?driver=MSSQL
     lims: mssql+pyodbc://sa:`1qaz2wsx@10.110.196.60:1433/master?driver=MSSQL
     fpc_ft: mssql+pyodbc://sa:`1qaz2wsx@10.153.196.59:1433/teller_test?driver=MSSQL
 
@@ -51,156 +51,6 @@ predict_items:
         target_source: lims
         sample_point: [SKS_V361]
         sample_item: [茶袋保持力]
-        grade_list: [BC283HA, BC283FHA, BC383GA, BC8000]
-        tags:
-    SKSAP_3_high_aap7_v2:
-        device: "0403 三期 高中和度 0.7psi APP (DNN)"
-        note: "DNN模型 時間區間：2018/07/01-2019/03/06"
-        data_name: aap7_high_3_v2.csv
-        data_target:
-        algo_name: [aap7_high_3_dnn.h5]
-        algo_r2: [0.94]
-        algo_dir_path: models/
-        data_dir_path: data/
-        prep_dir_path: prep/
-        prep_name: [aap7_high_3_scaler_v2.sav]
-        scaler: aap7_high_3_scaler_v2.sav
-        confidence: True
-        confidence_bounds: [0.5, 0.7]
-        predict_sleep_seconds: 900
-        revise: False
-        revise_minutes_low: -60
-        revise_minutes_high: 60
-        revise_sample_times: 2
-        threshold: 0.3
-        target_source: lims
-        sample_point: [SKS_V361]
-        sample_item: [0.7 psi AAP]
-        grade_list: [BC283HA, BC283FHA, BC383GA, BC8000]
-        tags:
-    SKSAP_3_high_aap3:
-        device: "0320 三期 高中和度 0.3psi AAP (DNN)"
-        note: "DNN模型 時間區間：2018/07/01-2019/03/06"
-        data_name: aap3_high_3.csv
-        data_target:
-        algo_name: [aap3_high_3_dnn.h5]
-        algo_r2: [0.65]
-        algo_dir_path: models/
-        data_dir_path: data/
-        prep_dir_path: prep/
-        prep_name: [aap3_high_3_scaler.sav]
-        scaler: aap3_high_3_scaler.sav
-        confidence: True
-        confidence_bounds: [0.5, 0.7]
-        predict_sleep_seconds: 900
-        revise: False
-        revise_minutes_low: -60
-        revise_minutes_high: 60
-        revise_sample_times: 2
-        threshold: 0.3
-        target_source: lims
-        sample_point: [SKS_V361]
-        sample_item: [0.3psiAAP]
-        grade_list: [BC283HA, BC283FHA, BC383GA, BC8000]
-        tags:
-    SKSAP_3_high_aap3_v2:
-        device: "0403 三期 高中和度 0.3psi AAP (DNN)"
-        note: "DNN模型 時間區間：2018/07/01-2019/03/06 新港廠篩選"
-        data_name: aap3_high_3_v2.csv
-        data_target:
-        algo_name: [aap3_high_3_dnn_v2.h5]
-        algo_r2: [0.75]
-        algo_dir_path: models/
-        data_dir_path: data/
-        prep_dir_path: prep/
-        prep_name: [aap3_high_3_scaler_v2.sav]
-        scaler: aap3_high_3_scaler_v2.sav
-        confidence: True
-        confidence_bounds: [0.5, 0.7]
-        predict_sleep_seconds: 900
-        revise: False
-        revise_minutes_low: -60
-        revise_minutes_high: 60
-        revise_sample_times: 2
-        threshold: 0.3
-        target_source: lims
-        sample_point: [SKS_V361]
-        sample_item: [0.3psiAAP]
-        grade_list: [BC283HA, BC283FHA, BC383GA, BC8000]
-        tags:
-    SKSAP_high_crc_v3:
-        device: "0425三期 高中和度 茶袋保持力 (Random forests)"
-        note: "random forests n_estimators = 200"
-        data_name: CRC_forRF.csv
-        data_target:
-        algo_name: [CRC_rf.sav]
-        algo_r2: [0.97]
-        algo_dir_path: models/
-        data_dir_path: data/
-        prep_dir_path: prep/
-        prep_name: [CRC_rf_scaler.sav]
-        scaler: CRC_rf_scaler.sav
-        confidence: True
-        confidence_bounds: [0.5, 0.7]
-        predict_sleep_seconds: 900
-        revise: False
-        revise_minutes_low: -60
-        revise_minutes_high: 60
-        revise_sample_times: 2
-        threshold: 0.3
-        target_source: lims
-        sample_point: [SKS_V361]
-        sample_item: [茶袋保持力]
-        grade_list: [BC283HA, BC283FHA, BC383GA, BC8000]
-        tags:
-    SKSAP_high_3psi_v3:
-        device: "0425 三期 高中和度 0.3psi AAP (Random forests)"
-        note: "random forests n_estimators = 200"
-        data_name: psi3_high_forRF.csv
-        data_target:
-        algo_name: [psi3_high_rf.sav]
-        algo_r2: [0.88]
-        algo_dir_path: models/
-        data_dir_path: data/
-        prep_dir_path: prep/
-        prep_name: [psi3_high_rf_scaler.sav]
-        scaler: psi3_high_rf_scaler.sav
-        confidence: True
-        confidence_bounds: [0.5, 0.7]
-        predict_sleep_seconds: 900
-        revise: False
-        revise_minutes_low: -60
-        revise_minutes_high: 60
-        revise_sample_times: 2
-        threshold: 0.3
-        target_source: lims
-        sample_point: [SKS_V361]
-        sample_item: [0.3psiAAP]
-        grade_list: [BC283HA, BC283FHA, BC383GA, BC8000]
-        tags:
-    SKSAP_high_7psi_v3:
-        device: "0425 三期 高中和度 0.7psi AAP (Random forests)"
-        note: "random forests n_estimators = 200"
-        data_name: psi7_high_forRF.csv
-        data_target:
-        algo_name: [psi7_high_rf.sav]
-        algo_r2: [0.88]
-        algo_dir_path: models/
-        data_dir_path: data/
-        prep_dir_path: prep/
-        prep_name: [psi7_high_rf_scaler.sav]
-        scaler: psi7_high_rf_scaler.sav
-        confidence: True
-        confidence_bounds: [0.5, 0.7]
-        predict_sleep_seconds: 900
-        revise: False
-        revise_minutes_low: -60
-        revise_minutes_high: 60
-        revise_sample_times: 2
-        threshold: 0.3
-        target_source: lims
-        sample_point: [SKS_V361]
-        sample_item: [0.7 psi AAP]
         grade_list: [BC283HA, BC283FHA, BC383GA, BC8000]
         tags:
     SKSAP_CRC_DNN_0605:
@@ -377,4 +227,104 @@ predict_items:
         sample_point: [SKS_V361]
         sample_item: [0.7 psi AAP]
         grade_list: [BC283HA, BC283FHA, BC383GA, BC8000]
+        tags:
+    SKSAP_normal_CRC_0715:
+        device: "0715 一期 一般品 茶袋保持力 (Mix)"
+        note: "(Ridge + RF + XGBoost)"
+        data_name: SKSAP_normal_CRC_0715.csv
+        data_target:
+        algo_name: [SKSAP_normal_CRC_RIDGE_0715.sav,SKSAP_normal_CRC_RF_0715.sav,SKSAP_normal_CRC_XGB_0715.sav]
+        algo_r2: [0.93,0.93,0.94]
+        algo_dir_path: models/
+        data_dir_path: data/
+        prep_dir_path: prep/
+        prep_name: [SKSAP_scaler_normal_CRC_0715.sav]
+        scaler: SKSAP_scaler_normal_CRC_0715.sav
+        confidence: True
+        confidence_bounds: [0.5, 0.7]
+        predict_sleep_seconds: 900
+        revise: False
+        revise_minutes_low: -60
+        revise_minutes_high: 60
+        revise_sample_times: 1
+        threshold: 0.3
+        target_source: lims
+        sample_point: [SKS_V361]
+        sample_item: [茶袋保持力]
+        grade_list: [BC283FA,BC283FAN,BC283GAN,BC583AN,BC586G,BC283UT]
+        tags:
+    SKSAP_normal_aap7_0715:
+        device: "0715 一期 一般品 0.7psi aap (Mix)"
+        note: "(Ridge + RF + XGBoost)"
+        data_name: SKSAP_normal_psi7_0715.csv
+        data_target:
+        algo_name: [SKSAP_normal_psi7_RIDGE_0715.sav,SKSAP_normal_psi7_RF_0715.sav,SKSAP_normal_psi7_XGB_0715.sav]
+        algo_r2: [0.91,0.92,0.91]
+        algo_dir_path: models/
+        data_dir_path: data/
+        prep_dir_path: prep/
+        prep_name: [SKSAP_scaler_normal_aap7_0715.sav]
+        scaler: SKSAP_scaler_normal_aap7_0715.sav
+        confidence: True
+        confidence_bounds: [0.5, 0.7]
+        predict_sleep_seconds: 900
+        revise: False
+        revise_minutes_low: -60
+        revise_minutes_high: 60
+        revise_sample_times: 1
+        threshold: 0.3
+        target_source: lims
+        sample_point: [SKS_V361]
+        sample_item: [0.7 psi AAP]
+        grade_list: [BC283FA,BC283FAN,BC283GAN,BC583AN,BC586G,BC283UT]
+        tags:
+    SKSAP_normal_CRC_1_0715:
+        device: "0715 一期 一般品 茶袋保持力 (Mix)"
+        note: "(RF + XGBoost)"
+        data_name: SKSAP_normal_CRC_1_0715.csv
+        data_target:
+        algo_name: [SKSAP_normal_CRC_1_RIDGE_0715.sav,SKSAP_normal_CRC_1_RF_0715.sav,SKSAP_normal_CRC_1_XGB_0715.sav]
+        algo_r2: [0.85,0.84,0.86]
+        algo_dir_path: models/
+        data_dir_path: data/
+        prep_dir_path: prep/
+        prep_name: [SKSAP_scaler_normal_CRC_1_0715.sav]
+        scaler: SKSAP_scaler_normal_CRC_1_0715.sav
+        confidence: True
+        confidence_bounds: [0.5, 0.7]
+        predict_sleep_seconds: 900
+        revise: False
+        revise_minutes_low: -60
+        revise_minutes_high: 60
+        revise_sample_times: 1
+        threshold: 0.3
+        target_source: lims
+        sample_point: [SKS_V161]
+        sample_item: [茶袋保持力]
+        grade_list: [BC-283UT,BC283FA,BC283FAN,BC283GAN,BC583AN]
+        tags:
+    SKSAP_normal_aap7_1_0715:
+        device: "0715 一期 一般品 0.7psi aap (Mix)"
+        note: "(RIDGE + RF + XGBoost)"
+        data_name: SKSAP_normal_psi7_1_0715.csv
+        data_target:
+        algo_name: [SKSAP_normal_psi7_1_RIDGE_0715.sav,SKSAP_normal_psi7_1_RF_0715.sav,SKSAP_normal_psi7_1_XGB_0715.sav]
+        algo_r2: [0.90,0.90,0.91]
+        algo_dir_path: models/
+        data_dir_path: data/
+        prep_dir_path: prep/
+        prep_name: [SKSAP_scaler_normal_aap7_1_0715.sav]
+        scaler: SKSAP_scaler_normal_aap7_1_0715.sav
+        confidence: True
+        confidence_bounds: [0.5, 0.7]
+        predict_sleep_seconds: 900
+        revise: False
+        revise_minutes_low: -60
+        revise_minutes_high: 60
+        revise_sample_times: 1
+        threshold: 0.3
+        target_source: lims
+        sample_point: [SKS_V161]
+        sample_item: [0.7 psi AAP]
+        grade_list: [BC-283UT,BC283FA,BC283FAN,BC283GAN,BC583AN]
         tags:
